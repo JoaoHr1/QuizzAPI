@@ -28,7 +28,6 @@ public class Quiz {
   @NotBlank
   private String resposta;
 
-  @NotBlank
   @Enumerated(EnumType.STRING)
   private Materia materia;
 
