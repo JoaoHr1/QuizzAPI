@@ -1,5 +1,6 @@
 package dev.joao.QuizzAPI.controller;
 
+import dev.joao.QuizzAPI.domain.Materia;
 import dev.joao.QuizzAPI.domain.Quiz;
 import dev.joao.QuizzAPI.domain.QuizService;
 import jakarta.validation.Valid;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/quiz")
+@RequestMapping("/v1/quiz")
 public class QuizController {
     @Autowired
     private QuizService quizService;
@@ -32,8 +33,13 @@ public class QuizController {
         return ResponseEntity.status(HttpStatus.CREATED).body(quizService.create(quiz));
     }
 
+    @GetMapping("/materia:{materia}")
+    public List<Quiz> listByMateria(@PathVariable Materia materia) {
+        return quizService.listByMateria(materia);
+    }
+
     @PutMapping("{id}")
-    public List<Quiz> update(@PathVariable long id, @RequestBody Quiz quiz) {
+    public List<Quiz> update(@PathVariable Long id, @RequestBody Quiz quiz) {
         return quizService.update(id, quiz);
     }
 

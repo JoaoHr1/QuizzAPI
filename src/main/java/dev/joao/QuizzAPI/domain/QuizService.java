@@ -21,7 +21,14 @@ public class QuizService {
     }
 
     public Optional<Quiz> listById(Long id) {
-       return quizRepository.findById(id);
+        quizRepository.findById(id).ifPresentOrElse((existingQuiz) -> quizRepository.findById(id), () -> {
+            throw new BadRequestException("Quiz referente ao ID não existe!");
+        });
+        return quizRepository.findById(id);
+    }
+
+    public List<Quiz> listByMateria(Materia materia) {
+        return quizRepository.findByMateria(materia);
     }
 
     public List<Quiz> create(Quiz quiz) {
@@ -34,13 +41,13 @@ public class QuizService {
             quiz.setId(id);
             quizRepository.save(quiz);
         }, () -> {
-            throw new BadRequestException("Quiz não existente!");
+            throw new BadRequestException("Quiz referente ao ID não existe!");
         });
         return list();
     }
     public List<Quiz> delete(Long id) {
         quizRepository.findById(id).ifPresentOrElse((existingQuiz) -> quizRepository.delete(existingQuiz), () -> {
-            throw new BadRequestException("Quiz não existente!");
+            throw new BadRequestException("Quiz referente ao ID existe!");
         });
         return list();
     }
