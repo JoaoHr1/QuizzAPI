@@ -1,4 +1,4 @@
-package dev.joao.QuizzAPI.domain;
+package dev.joao.QuizzAPI.domain.quiz;
 
 public enum Materia {
     geografia,
