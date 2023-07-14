@@ -1,4 +1,4 @@
-package dev.joao.QuizzAPI.domain;
+package dev.joao.QuizzAPI.domain.quiz;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

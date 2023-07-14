@@ -1,8 +1,8 @@
 package dev.joao.QuizzAPI.controller;
 
-import dev.joao.QuizzAPI.domain.Materia;
-import dev.joao.QuizzAPI.domain.Quiz;
-import dev.joao.QuizzAPI.domain.QuizService;
+import dev.joao.QuizzAPI.domain.quiz.Materia;
+import dev.joao.QuizzAPI.domain.quiz.Quiz;
+import dev.joao.QuizzAPI.domain.quiz.QuizService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
