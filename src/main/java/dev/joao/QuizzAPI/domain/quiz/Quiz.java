@@ -31,5 +31,7 @@ public class Quiz {
   @Enumerated(EnumType.STRING)
   private Materia materia;
 
-  
+
+  public Quiz(String questao, String resposta, Materia materia) {
+  }
 }
